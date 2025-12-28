@@ -1,0 +1,8 @@
+Objective:  
+Analyze Google Play Store reviews to understand user sentiment by using ratings and review text to classify feedback as positive, negative, or neutral, and visualize frequent words using a word cloud for product insight.
+
+Problem Statement:  
+Mobile app developers receive large volumes of unstructured user reviews containing feedback, complaints, and feature requests. Manually analyzing these reviews is time-consuming and inefficient. There is a need for an automated system that can process review text, leverage rating scores, and summarize overall customer sentiment and recurring issues to support data-driven product decisions.
+
+Programming Skills Needed:  
+Python, Pandas, Data Cleaning (regex, null handling), Sentiment Analysis (TextBlob / rule-based using ratings), WordCloud, Data Visualization (Matplotlib/Seaborn), Basic NLP, CSV data handling.

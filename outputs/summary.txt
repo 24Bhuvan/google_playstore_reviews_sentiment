@@ -1,0 +1,18 @@
+Sentiment Percentage:
+Positive: 42.81%
+Negative: 40.86%
+Neutral: 16.33%
+
+Top Complaint Keywords:
+the: 6148
+i: 5858
+to: 5410
+it: 4273
+app: 3195
+and: 3174
+a: 3073
+for: 2189
+is: 2176
+t: 2090
+
+Overall App Sentiment: Positive

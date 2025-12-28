@@ -1,0 +1,25 @@
+google_reviews_sentiment/
+├── data/
+│   ├── raw/
+│   │   └── google_reviews.csv
+│   └── processed/
+│       └── cleaned_reviews.csv
+│
+├── notebooks/
+│   └── sentiment_analysis.ipynb
+│
+├── src/
+│   ├── data_loading.py
+│   ├── text_cleaning.py
+│   ├── sentiment_analysis.py
+│   ├── wordcloud_generator.py
+│   └── utils.py
+│
+├── outputs/
+│   ├── charts/
+│   │   ├── sentiment_distribution.png
+│   │   └── wordcloud.png
+│   └── summary.txt
+│
+├── requirements.txt
+└── README.md

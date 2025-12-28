@@ -1,0 +1,179 @@
+
+# ============================================================
+# GOOGLE PLAYSTORE REVIEWS — FINAL PROJECT PIPELINE
+# ============================================================
+
+# Project Structure Used:
+# google_playstore_reviews_sentiment/
+# ├── data/
+# ├── notebooks/
+# ├── src/
+# ├── outputs/
+# ├── requirements.txt
+# └── README.md
+
+
+# ------------------------------------------------------------
+# STEP 1: RAW DATA INGESTION
+# ------------------------------------------------------------
+# File:
+# data/raw/playstore_reviews.csv
+#
+# Columns:
+# reviewId
+# userName
+# userImage
+# content
+# score
+# thumbsUpCount
+# reviewCreatedVersion
+# at
+# replyContent
+# repliedAt
+# sortOrder
+# appId
+#
+# Purpose:
+# - Original Kaggle dataset
+# - Must NOT be modified
+# - Used as base input for entire pipeline
+
+
+# ------------------------------------------------------------
+# STEP 2: LOAD & FILTER DATA
+# ------------------------------------------------------------
+# File: src/data_loading.py
+#
+# Actions:
+# - Load CSV file
+# - Select required columns:
+#   content, score, at, thumbsUpCount, replyContent
+# - Drop rows with empty content
+# - Convert date column to datetime
+#
+# Output:
+# data/processed/cleaned_reviews.csv
+#
+# Purpose:
+# - Remove unnecessary fields
+# - Prepare structured data for processing
+
+
+# ------------------------------------------------------------
+# STEP 3: TEXT CLEANING
+# ------------------------------------------------------------
+# File: src/text_cleaning.py
+#
+# Input:
+# data/processed/cleaned_reviews.csv
+#
+# Operations:
+# - Convert text to lowercase
+# - Remove URLs
+# - Remove emojis
+# - Remove punctuation
+# - Remove extra spaces
+# - Remove duplicate reviews
+#
+# Output:
+# data/processed/cleaned_reviews.csv (updated)
+#
+# Purpose:
+# - Improve NLP accuracy
+# - Reduce noise in analysis
+
+
+# ------------------------------------------------------------
+# STEP 4: SENTIMENT ANALYSIS
+# ------------------------------------------------------------
+# File: src/sentiment_analysis.py
+#
+# Logic:
+# score >= 4  → Positive
+# score == 3  → Neutral
+# score <= 2  → Negative
+#
+# Optional:
+# - Validate using TextBlob polarity
+#
+# Output:
+# data/processed/sentiment_labeled.csv
+#
+# Purpose:
+# - Convert numeric ratings into sentiment labels
+# - Core logic of the project
+
+
+# ------------------------------------------------------------
+# STEP 5: WORD CLOUD GENERATION
+# ------------------------------------------------------------
+# File: src/wordcloud_generator.py
+#
+# Input:
+# - content column from sentiment_labeled.csv
+#
+# Output:
+# outputs/charts/wordcloud.png
+#
+# Purpose:
+# - Visualize most frequent words
+# - Identify common complaints and praise
+
+
+# ------------------------------------------------------------
+# STEP 6: VISUALIZATION
+# ------------------------------------------------------------
+# File: src/visualization.py
+#
+# Actions:
+# - Count sentiment labels
+# - Generate bar chart
+#
+# Output:
+# outputs/charts/sentiment_distribution.png
+#
+# Purpose:
+# - Show overall customer sentiment visually
+
+
+# ------------------------------------------------------------
+# STEP 7: NOTEBOOK ANALYSIS
+# ------------------------------------------------------------
+# File:
+# notebooks/01_sentiment_analysis.ipynb
+#
+# Purpose:
+# - Exploratory Data Analysis
+# - Validation of sentiment results
+# - Visualization testing
+#
+# Reads:
+# data/processed/sentiment_labeled.csv
+
+
+# ------------------------------------------------------------
+# STEP 8: FINAL OUTPUT
+# ------------------------------------------------------------
+# Folder:
+# outputs/
+#
+# Contains:
+# - charts/sentiment_distribution.png
+# - charts/wordcloud.png
+# - summary.txt
+#
+# summary.txt includes:
+# - Percentage of positive / negative reviews
+# - Common complaint keywords
+# - Overall app sentiment
+
+
+# ------------------------------------------------------------
+# PIPELINE EXECUTION ORDER
+# ------------------------------------------------------------
+
+python src/data_loading.py
+python src/text_cleaning.py
+python src/sentiment_analysis.py
+python src/wordcloud_generator.py
+python src/visualization.py
