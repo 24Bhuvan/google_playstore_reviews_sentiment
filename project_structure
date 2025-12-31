@@ -12,8 +12,8 @@ google_reviews_sentiment/
 │   ├── data_loading.py
 │   ├── text_cleaning.py
 │   ├── sentiment_analysis.py
-│   ├── wordcloud_generator.py
-│   └── utils.py
+│   └── wordcloud_generator.py
+│   
 │
 ├── outputs/
 │   ├── charts/
